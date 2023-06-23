@@ -1,10 +1,8 @@
 import cv2
 import mediapipe as mp
 from sympy import re
-
-mp_drawing = mp.solutions.drawing_utils
-mp_hands = mp.solutions.hands
-hands = mp_hands.Hands()
+import math
+import numpy as np
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
@@ -14,6 +12,9 @@ interface = devices.Activate(
 volume = cast(interface, POINTER(IAudioEndpointVolume))
 #print(volume.GetMute(),"\n")
 #print(volume.GetMasterVolumeLevel())
+mp_drawing = mp.solutions.drawing_utils
+mp_hands = mp.solutions.hands
+hands = mp_hands.Hands()
 
 
 cap = cv2.VideoCapture(0)
